@@ -1,3 +1,4 @@
+# mic_client_arecord_fixed.py
 import asyncio
 import websockets
 import subprocess
@@ -30,7 +31,7 @@ def read_from_arecord(q, stop_event):
     """Читает данные из arecord в отдельном потоке"""
     cmd = [
         "arecord",
-        "-D", "plughw:2,0",
+        "-D", "plughw:1,0",
         "-f", "S16_LE",
         "-r", "16000",
         "-c", "1",
@@ -198,3 +199,4 @@ if __name__ == "__main__":
     print("-" * 50)
     
     asyncio.run(stream_audio())
+
