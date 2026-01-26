@@ -1,0 +1,38 @@
+# --- Core ---
+torch==2.1.0
+torchaudio==2.1.0
+numpy==1.24.3
+
+# --- Whisper ---
+openai-whisper
+
+# --- PyAnnote stack ---
+pyannote.audio==3.1.1
+pyannote.core==5.0.0
+pyannote.database==5.0.1
+pyannote.metrics==3.2.1
+huggingface_hub==0.20.3
+
+# --- ML / Audio ---
+einops==0.7.0
+librosa==0.10.1
+soundfile==0.12.1
+scipy==1.11.4
+transformers==4.35.2
+tokenizers==0.15.0
+accelerate==0.25.0
+safetensors==0.4.1
+sentencepiece==0.1.99
+
+# --- Utils ---
+pytorch_lightning==2.0.9
+tqdm==4.66.1
+rich==13.7.0
+colorama==0.4.6
+pandas==2.1.4
+matplotlib==3.8.2
+psutil
+pydub==0.25.1
+ffmpeg-python==0.2.0
+webvtt-py==0.4.6
+

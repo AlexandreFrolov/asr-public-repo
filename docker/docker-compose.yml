@@ -1,0 +1,33 @@
+services:
+  whisper-asr:
+    container_name: whisper_pyannote_gpu
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # NVIDIA GPU
+    runtime: nvidia
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+      HF_TOKEN: ${HF_TOKEN}
+
+    # Вход / выход
+    volumes:
+      - ./input:/app/input
+      - ./results:/app/results
+      # опционально: кэш моделей (ускоряет повторные запуски)
+      - ./hf-cache:/root/.cache/huggingface
+      - ./whisper-cache:/root/.cache/whisper
+
+    # Команда запуска
+    command: >
+      /app/input/fm-records_25.wav
+      --output-dir /app/results
+      --whisper-model large-v3
+      --language ru
+      --export-all
+      --hf-token ${HF_TOKEN}
+
+    restart: "no"
+
